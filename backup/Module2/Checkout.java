@@ -1,7 +1,7 @@
 package QKART_SANITY_LOGIN.Module1;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -27,6 +27,7 @@ public class Checkout {
      */
     public Boolean addNewAddress(String addresString) {
         try {
+            // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 05: MILESTONE 4
             /*
              * Click on the "Add new address" button, enter the addressString in the address
              * text box and click on the "ADD" button to save the address
@@ -41,7 +42,6 @@ public class Checkout {
             addButton.click();
 
             return false;
-
         } catch (Exception e) {
             System.out.println("Exception occurred while entering address: " + e.getMessage());
             return false;
@@ -54,6 +54,7 @@ public class Checkout {
      */
     public Boolean selectAddress(String addressToSelect) {
         try {
+            // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 05: MILESTONE 4
             /*
              * Iterate through all the address boxes to find the address box with matching
              * text, addressToSelect and click on it
@@ -81,9 +82,11 @@ public class Checkout {
      */
     public Boolean placeOrder() {
         try {
-
+            // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 05: MILESTONE 4
+            // Find the "PLACE ORDER" button and click on it
             WebElement placeOrderEle = driver.findElement(By.xpath("//button[text()='PLACE ORDER']"));
             placeOrderEle.click();
+
             return false;
 
         } catch (Exception e) {
@@ -97,6 +100,7 @@ public class Checkout {
      */
     public Boolean verifyInsufficientBalanceMessage() {
         try {
+            // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 08: MILESTONE 7
             WebElement insufficientBalanceElement = driver.findElement(By.xpath("//div[@class=\"SnackbarItem-wrappedRoot css-vbcata\"]/div"));
         
                 boolean isDisplayed = false;
@@ -106,8 +110,8 @@ public class Checkout {
                         isDisplayed=true;
                     }
                 }
+            return isDisplayed;
 
-             return isDisplayed;
         } catch (Exception e) {
             System.out.println("Exception while verifying insufficient balance message: " + e.getMessage());
             return false;
