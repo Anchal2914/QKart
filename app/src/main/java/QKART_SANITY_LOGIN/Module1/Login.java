@@ -9,7 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.Wait;
+
 
 public class Login {
     RemoteWebDriver driver;
@@ -49,9 +50,12 @@ public class Login {
 
         // SLEEP_STMT_13: Wait for Login to Complete
         // Wait for Login action to complete
-        // WebDriverWait wait = new WebDriverWait(driver, 30);
-        // wait.until(ExpectedConditions.urlToBe("https://crio-qkart-frontend-qa.vercel.app/"));
-        Thread.sleep(5000);
+        FluentWait<RemoteWebDriver> wait = new FluentWait<>(driver)
+                .withTimeout((Duration.ofSeconds(30)))
+                .pollingEvery(Duration.ofMillis(250))
+                .ignoring(Exception.class);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='root']/div/div/div[1]/div[2]/div/input")));
+        //Thread.sleep(5000);
 
         return this.VerifyUserLoggedIn(Username);
     }

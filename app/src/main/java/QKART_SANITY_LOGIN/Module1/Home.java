@@ -20,7 +20,7 @@ public class Home {
     public void navigateToHome() {
         if (!this.driver.getCurrentUrl().equals(this.url)) {
             this.driver.get(this.url);
-        }
+              }
     }
 
     public Boolean PerformLogout() throws InterruptedException {
@@ -51,6 +51,14 @@ public class Home {
             searchBoxElement.clear();
             searchBoxElement.sendKeys(product);
             Thread.sleep(5000);
+            //driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+            // WebDriverWait wait = new WebDriverWait(driver, 30);
+            // wait.until(
+            //   ExpectedConditions.or(
+            //     ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), '"+product+"')]")),
+            //        ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()=' No products found ']"))
+            //   ) 
+            // );
             return true;
         } catch (Exception e) {
             System.out.println("Error while searching for a product: " + e.getMessage());
@@ -173,17 +181,31 @@ public class Home {
                         if(quantity > actualQuantity) {
                             WebElement plusButtonElement = plusButtonElements.get(i);
                             plusButtonElement.click();
-                            Thread.sleep(2000);
+                            //Thread.sleep(2000);
+                            String actQuantityText = driver.findElement(By.xpath("//*[@id='root']/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div")).getText();
+                            int actQuantity = Integer.parseInt(actQuantityText);
+                            WebDriverWait wait = new WebDriverWait(driver, 3);
+                            wait.until(ExpectedConditions.textToBe(
+                            By.xpath("//*[@id='root']/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div"),
+                            String.valueOf(actQuantity + 1)));
                         } else if (quantity < actualQuantity) {
                             WebElement minusButtonElement = minusButtonElements.get(i);
                             minusButtonElement.click();
-                            Thread.sleep(2000);
+                            //Thread.sleep(2000);
+                            String actQuantityText = driver.findElement(By.xpath("//*[@id='root']/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div")).getText();
+                            int actQuantity = Integer.parseInt(actQuantityText);
+                            WebDriverWait wait = new WebDriverWait(driver, 3);
+                            wait.until(ExpectedConditions.textToBe(
+                            By.xpath("//*[@id='root']/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div"),
+                            String.valueOf(actQuantity - 1)));
                         } else if (quantity == actualQuantity) {
                             break;
                         }
 
                     }
                 }
+                
+
             }        
 
             return false;

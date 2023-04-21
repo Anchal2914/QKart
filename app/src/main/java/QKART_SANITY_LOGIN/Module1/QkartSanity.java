@@ -164,7 +164,7 @@ public class QkartSanity {
         homePage.navigateToHome();
 
         // SLEEP_STMT_01 : Wait for Page to Load
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
 
         // Search for the "yonex" product
         status = homePage.searchForProduct("yonex");
@@ -200,7 +200,7 @@ public class QkartSanity {
 
         logStatus("Step Success", "Successfully validated the search results ", "PASS");
         // SLEEP_STMT_02
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
 
         // Search for product
         status = homePage.searchForProduct("Gesundheit");
@@ -241,7 +241,7 @@ public class QkartSanity {
         homePage.navigateToHome();
 
         // SLEEP_STMT_03 : Wait for page to load
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
 
         // Search for product and get card content element of search results
         status = homePage.searchForProduct("Running Shoes");
@@ -352,7 +352,7 @@ public class QkartSanity {
         // Place the order
         checkoutPage.placeOrder();
         // SLEEP_STMT_04: Wait for place order to succeed and navigate to Thanks page
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
 
         // Check if placing order redirected to the Thansk page
         status = driver.getCurrentUrl().endsWith("/thanks");
@@ -417,7 +417,7 @@ public class QkartSanity {
         checkoutPage.selectAddress("Addr line 1 addr Line 2 addr line 3");
 
         checkoutPage.placeOrder();
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
 
         status = driver.getCurrentUrl().endsWith("/thanks");
 
@@ -470,7 +470,7 @@ public class QkartSanity {
 
         login.navigateToLoginPage();
         status = login.PerformLogin(lastGeneratedUserName, "abc@123");
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
 
         status = homePage.verifyCartContents(expectedResult);
 
@@ -528,7 +528,7 @@ public class QkartSanity {
         checkoutPage.selectAddress("Addr line 1 addr Line 2 addr line 3");
 
         checkoutPage.placeOrder();
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
 
         status = checkoutPage.verifyInsufficientBalanceMessage();
 
@@ -542,7 +542,7 @@ public class QkartSanity {
     public static Boolean TestCase09(RemoteWebDriver driver) throws InterruptedException {
         Boolean status = false;
         logStatus("Start TestCase", "Test Case 9: Verify that multitab can be handled", "DONE");
-        List<String> expectedResult = Arrays.asList("SYONEX Smash Badminton Racquet");
+        List<String> expectedResult = Arrays.asList("YONEX Smash Badminton Racquet");
 
         // TODO: CRIO_TASK_MODULE_SYNCHRONISATION -
         Register registration = new Register(driver);
@@ -569,13 +569,7 @@ public class QkartSanity {
                     status ? "PASS" : "FAIL");
         status = homePage.verifyCartContents(expectedResult);
         logStatus("End TestCase", "Test Case 9: Cart content verified  ", status ? "PASS" : "FAIL");
-        // Set<String> newWindowHandle = driver.getWindowHandles();
-        // for (String handles : newWindowHandle) {
-        //     if (!handles.equals(parentWindow)) {
-        //         Thread.sleep(3000);
-        //         driver.close();
-        //     }
-        // }
+        
      
         return status;
     }
@@ -710,7 +704,7 @@ public class QkartSanity {
         checkoutPage.selectAddress("Addr line 1 addr Line 2 addr line 3");
 
         checkoutPage.placeOrder();
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         
         status = driver.getCurrentUrl().endsWith("/thanks");
 

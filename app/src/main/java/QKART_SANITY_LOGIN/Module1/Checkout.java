@@ -33,13 +33,16 @@ public class Checkout {
              */
             WebElement addNewAddress = driver.findElement(By.id("add-new-btn"));
             addNewAddress.click();
-
+            
             WebElement addressArea = driver.findElement(By.xpath("//textarea[@placeholder='Enter your complete address']"));
             addressArea.sendKeys(addresString);
 
             WebElement addButton = driver.findElement(By.xpath("//button[text()='Add']"));
             addButton.click();
 
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='root']/div/div[2]/div[1]/div/div[1]/div/div[2]/button")));
+           
             return false;
 
         } catch (Exception e) {
@@ -84,6 +87,12 @@ public class Checkout {
 
             WebElement placeOrderEle = driver.findElement(By.xpath("//button[text()='PLACE ORDER']"));
             placeOrderEle.click();
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.or(
+                ExpectedConditions.urlToBe("https://crio-qkart-frontend-qa.vercel.app/thanks"),
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"SnackbarItem-wrappedRoot css-vbcata\"]/div"))
+                )
+            );
             return false;
 
         } catch (Exception e) {
