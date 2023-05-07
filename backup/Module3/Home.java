@@ -182,7 +182,8 @@ public class Home {
                             WebElement plusButtonElement = plusButtonElements.get(i);
                             plusButtonElement.click();
                             //Thread.sleep(2000);
-                            String actQuantityText = driver.findElement(By.xpath("//*[@id='root']/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div")).getText();
+                            String actQuantityText = driver.findElement
+                            (By.xpath("//*[@id='root']/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div")).getText();
                             int actQuantity = Integer.parseInt(actQuantityText);
                             WebDriverWait wait = new WebDriverWait(driver, 3);
                             wait.until(ExpectedConditions.textToBe(
@@ -192,7 +193,8 @@ public class Home {
                             WebElement minusButtonElement = minusButtonElements.get(i);
                             minusButtonElement.click();
                             //Thread.sleep(2000);
-                            String actQuantityText = driver.findElement(By.xpath("//*[@id='root']/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div")).getText();
+                            String actQuantityText = driver.findElement
+                            (By.xpath("//*[@id='root']/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div")).getText();
                             int actQuantity = Integer.parseInt(actQuantityText);
                             WebDriverWait wait = new WebDriverWait(driver, 3);
                             wait.until(ExpectedConditions.textToBe(

@@ -623,7 +623,9 @@ public class QkartSanity {
             String childwindow = I1.next();
             if (!parentWindow.equals(childwindow)) {
                 driver.switchTo().window(childwindow);
-                if((driver.getCurrentUrl().equals("https://crio-qkart-frontend-qa.vercel.app/privacy-policy"))||(driver.getCurrentUrl().equals("https://crio-qkart-frontend-qa.vercel.app/aboutus")) || (driver.getCurrentUrl().equals("https://crio-qkart-frontend-qa.vercel.app/terms-of-service"))) {
+                if((driver.getCurrentUrl().equals("https://crio-qkart-frontend-qa.vercel.app/privacy-policy"))||
+                (driver.getCurrentUrl().equals("https://crio-qkart-frontend-qa.vercel.app/aboutus")) || 
+                (driver.getCurrentUrl().equals("https://crio-qkart-frontend-qa.vercel.app/terms-of-service"))) {
                 String verifyContent = driver.findElement(By.xpath("//*[@id='root']/div/div[2]/h2")).getText();
                 Thread.sleep(5000);
                 if((verifyContent.equals("Privacy Policy")) || (verifyContent.equals("Terms of Service")) || (verifyContent.equals("About Us"))) {
