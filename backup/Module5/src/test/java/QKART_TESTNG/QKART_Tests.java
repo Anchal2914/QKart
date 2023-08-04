@@ -133,6 +133,7 @@ public class QKART_Tests {
      * Testcase03: Verify the functinality of the search text box
      */
         @Test(priority = 3, description = "Verify the functionality of search text box", groups = "Sanity_test")
+        // @Test(priority = 3, description = "Verify the functionality of search text box")
         @Parameters({"TC3_ProductNameToSearchFor1","TC3_ProductNameToSearchFor2"})
         public void TestCase03(String TC3_ProductNameToSearchFor1, String TC3_ProductNameToSearchFor2) throws InterruptedException {
             boolean status;

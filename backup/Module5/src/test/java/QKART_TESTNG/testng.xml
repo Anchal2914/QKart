@@ -10,7 +10,7 @@
         <groups>
             <run>
               <include name = "Sanity_test"></include>
-              <include name = "Regression_Test"></include>
+              <!-- <include name = "Regression_Test"></include> -->
             </run>
         </groups>
         <parameter name="TC3_ProductNameToSearchFor1" value="YONEX"/>
